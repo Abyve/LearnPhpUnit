@@ -4,7 +4,7 @@ class Agence
 {
 
     private string $adresse;
-    private boolean $ouverture;
+    private $ouverture;
     private Employe $employe;
 
     public function __construct($adresse, $ouverture, $employe)
