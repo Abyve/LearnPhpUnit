@@ -1,0 +1,23 @@
+<?php
+use PHPUnit\Framework\TestCase;
+include('../app/Employe.php');
+include('../app/Agence.php');
+class AgenceTest extends TestCase {
+
+    public function testGetAdresse() {
+
+        $e= new Employe('Bond','James','7','0','4500');
+        $agence= new Agence('rue la Boetie',1,$e);
+        $adresse=$agence->getAdresse();
+        $this->assertSame("rue la Boetie",$adresse);
+    }
+    public function testGetOuverture() {
+
+        $e= new Employe('Bond','James','7','0','4500');
+        $agence= new Agence('rue la Boetie',1,$e);
+        $ouverture=$agence->getOuverture();
+        $this->assertSame(1,$ouverture);
+    }
+
+
+}
