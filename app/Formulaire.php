@@ -2,32 +2,36 @@
 
 class Formulaire {
 
-    private $alert;
+    private $pseudoAlert;
+    private $mdpAlert;
     private $form;
 
     function __construct()
     {
-        $this->alert='';
-        $this->form='';
-    }
-    function getalert() {
-        $pseudoAlert='';
-        $mdpAlert='';
+        $this->pseudoAlert='';
+        $this->mdpAlert='';
         if (isset($_POST['pseudo'])) {
-            $pseudo = htmlspecialchars($_POST['pseudo']) ;
+            $this->pseudo = htmlspecialchars($_POST['pseudo']) ;
         }
-        else {
-            $pseudoAlert= 'Veuillez remplir le champs pseudo svp ! <br />';
+        else
+        {
+        $this->pseudo='';
         }
         if (isset ($_POST['mdp'])) {
-            $mdp=htmlspecialchars($_POST['mdp']);
-           
+            $this->mdp=htmlspecialchars($_POST['mdp']);
         }
-        else {
-            $mdpAlert='Veuillez remplir le champs mot de passe svp ! <br /> ';
+        else
+        {
+        $this->mdp='';
         }
-    
-        return $pseudoAlert.$mdpAlert;
+    }
+    function getPseudoAlert() {
+        if ($this->pseudo==='') { $this->pseudoAlert= 'Veuillez remplir le champs pseudo svp ! <br />';}
+        return $this->pseudoAlert;
+    }
+    function getMdpAlert() {
+        if ($this->mdp===''){ $this->mdpAlert='Veuillez remplir le champs mot de passe svp ! <br /> ';}
+        return $this->mdpAlert;
     }
     
 
@@ -39,9 +43,9 @@ class Formulaire {
         $form='
         <form  action="'.$_SERVER['PHP_SELF'].'" method="post" >
             <label> Votre pseudo : </label>
-            <input type="text" name="pseudo" id ="pseudo" value="" />
+            <input type="text" name="pseudo" id ="pseudo" value="'.$this->pseudo.'" />
             <label> Votre mot de passe: </label>
-            <input type="text" name="mdp" id ="mdp" value="" />
+            <input type="text" name="mdp" id ="mdp" value="'.$this->mdp.'" />
             <input type="submit" name="envoie" id="envoie" value="envoie" />
             <input type="reset" name="effacer" id="effacer" value="effacer" />
         </form>';

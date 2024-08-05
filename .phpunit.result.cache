@@ -1,1 +1,1 @@
-{"version":1,"defects":{"FormulaireTest::testConnexion":8,"FormulaireTest::testgetForm":8,"FormulaireTest::testgetAlert":7},"times":{"UselessTest::testMultiplication":0.001,"FormulaireTest::testConnexion":0.008,"FormulaireTest::testgetForm":0.004,"FormulaireTest::testgetAlert":0.074}}
+{"version":1,"defects":{"FormulaireTest::testConnexion":8,"FormulaireTest::testgetForm":8,"FormulaireTest::testgetAlert":7},"times":{"UselessTest::testMultiplication":0,"FormulaireTest::testConnexion":0.008,"FormulaireTest::testgetForm":0.005,"FormulaireTest::testgetAlert":0}}

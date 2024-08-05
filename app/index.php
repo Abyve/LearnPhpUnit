@@ -21,7 +21,7 @@
 
     $f=new Formulaire();
     $form=$f->getForm();
-    $alert=$f->getalert();
+    $alert=$f->getPseudoAlert().$f->getMdpAlert();
     echo $form;
     echo $alert;
 

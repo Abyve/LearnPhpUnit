@@ -1,4 +1,4 @@
-<?php //declare(strict_types=1);
+<?php declare(strict_types=1);
 include('./app/Formulaire.php');
 use PHPUnit\Framework\TestCase;
 
@@ -24,17 +24,18 @@ final class FormulaireTest extends TestCase
     }
     public function testgetAlert(): void {
         $form=new Formulaire;
-        $retourAlert=$form->getAlert();
+        $retourPseudoAlert=$form->getPseudoAlert();
+        $retourMdpAlert=$form->getMdpAlert();
         $pseudoAlert='Veuillez remplir le champs pseudo svp ! <br />';
         $mdpAlert='Veuillez remplir le champs mot de passe svp ! <br /> ';
         //pas de mdp
-        $this->assertSame($pseudoAlert,$retourAlert);
+        $this->assertSame($pseudoAlert,$retourPseudoAlert);
         //pas de pseudo
-        $this->assertSame($mdpAlert,$retourAlert);
+        $this->assertSame($mdpAlert,$retourMdpAlert);
         //pas de pseudo ni de mdp;
-        $this->assertSame($pseudoAlert.$mdpAlert,$retourAlert);
+        //$this->assertSame('',$retourPseudoAlert.$retourMdpAlert);
         //pseudo et mdp fournis
-        $this->assertSame($pseudoAlert.$mdpAlert,$retourAlert);
+        $this->assertSame($pseudoAlert.$mdpAlert,$retourPseudoAlert.$retourMdpAlert);
     }
 
 
