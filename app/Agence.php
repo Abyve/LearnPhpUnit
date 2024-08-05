@@ -5,7 +5,7 @@ class Agence
 
     private string $adresse;
     private $ouverture;
-    private Employe $employe;
+    private $employe=array();
 
     public function __construct($adresse, $ouverture, $employe)
     {
@@ -41,11 +41,25 @@ class Agence
 
 
     }
-    public function setEmploye($nouveauEmploye) {
+    public function setEmploye(array $employe) {
 
-        $this->employe=$nouveauEmploye;
+        $this->employe=$employe;
 
 
+
+    }
+
+    public function toString() {
+
+        foreach ($this->employe as $key => $valeur)
+        {
+            echo ' Employé numéro : '.$key.'<br />'.'est : <br />'.$valeur->toString().' <br />';
+
+
+
+
+
+        }
 
     }
 

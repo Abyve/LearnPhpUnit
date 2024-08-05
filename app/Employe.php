@@ -7,14 +7,18 @@ class Employe
     private  $heureTravail;
     private  $heureAbsence;
     private  $salaire;
+    private string $pseudo;
+    private string $mdp;
 
-    public function __construct(string $nom, string $prenom, $heureTravail, $heureAbsence, float $salaire)
+    public function __construct(string $nom, string $prenom, $heureTravail, $heureAbsence, $salaire, $pseudo, $mdp)
     {
         $this->nom=$nom;
         $this->prenom=$prenom;
         $this->heureTravail= $heureTravail;
         $this->heureAbsence = $heureAbsence;
         $this->salaire = $salaire;
+        $this->pseudo = $pseudo;
+        $this->mdp = $mdp;
     }
 
     //getters
@@ -33,7 +37,12 @@ class Employe
     public function getSalaire() {
         return $this->salaire ;
     }
-
+    public function getPseudo() {
+        return $this->pseudo ;
+    }
+    public function getMdp() {
+        return $this->mdp ;
+    }
     //setters
 
     public function setNom(string $nom) {
@@ -56,4 +65,28 @@ class Employe
 
         $this->salaire=$salaire;
     }
+    public function setPseudo( $pseudo) {
+
+        $this->pseudo=$pseudo;
+    }
+    public function setMdp( $salaire) {
+
+        $this->mdp=$mdp;
+    }
+
+    //methode toString
+
+    public function toString():string {
+
+        $s= 'nom : '.$this->nom.' prenom : '.$this->prenom.' <br /> '.
+        'horaires : '.($this->heureTravail-$this->heureAbsence).' heures. <br />';
+        
+        ;
+        return $s;
+
+
+    }
+
+
+
 }

@@ -3,6 +3,9 @@ use PHPUnit\Framework\TestCase;
 include('../app/Employe.php');
 include('../app/Agence.php');
 class AgenceTest extends TestCase {
+    Private $e
+    $e= new Employe('Bond','James','7','0','4500');
+    $agence= new Agence('rue la Boetie',1,$e);
 
     public function testGetAdresse() {
 
@@ -15,8 +18,11 @@ class AgenceTest extends TestCase {
 
         $e= new Employe('Bond','James','7','0','4500');
         $agence= new Agence('rue la Boetie',1,$e);
+        $adresse=$agence->getAdresse();
+        $this->assertSame('rue la Boetie',$adresse);
         $ouverture=$agence->getOuverture();
         $this->assertSame(1,$ouverture);
+        
     }
 
 
